@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple Web Page</title>
+
+    <style>
+      body {
+        font-family: Ariel, Verdana, sans-serif;
+        background-color: white;
+      }
+
+      p {
+        padding: 10px;
+      }
+
+      #container {
+        width: 80%;
+        margin: auto;
+      }
+
+      .headcolor {
+        color: saddlebrown;
+        background-color: palegoldenrod;
+        padding: 10px;
+      }
+    </style>
+
+    <script>
+      var changeColors = function () {
+        var container = document.getElementById("container");
+        var mypara1 = document.getElementById("mypara1");
+        var mypara2 = document.getElementById("mypara2");
+
+        container.style.backgroundColor = "saddlebrown";
+        mypara1.style.color = "palegoldenrod";
+        mypara2.style.color = "palegoldenrod";
+      };
+    </script>
+  </head>
+
+  <body onload="changeColors();">
+    <div id="container">
+      <header>
+        <h1 class="headcolor">Exercise 1</h1>
+      </header>
+
+      <main>
+        <h4 class="headcolor">Really Important Stuff</h4>
+
+        <p id="mypara1">1. Read about this exercise</p>
+        <p id="mypara2">2. Do it right</p>
+      </main>
+    </div>
+  </body>
+</html>

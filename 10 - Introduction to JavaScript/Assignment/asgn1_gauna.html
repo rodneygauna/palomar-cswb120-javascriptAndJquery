@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Assignment 1 - Gauna</title>
+    <style>
+      body {
+        font-family: Ariel, Verdana, sans-serif;
+        background-color: palegoldenrod;
+      }
+
+      p {
+        color: saddlebrown;
+        padding: 10px;
+      }
+
+      #container {
+        width: 60%;
+      }
+
+      .pcolor {
+        font-weight: bold;
+      }
+
+      .headcolor {
+        color: white;
+        background-color: saddlebrown;
+        padding: 10px;
+      }
+    </style>
+    <script src="./asgn1_gauna.js"></script>
+  </head>
+
+  <body>
+    <div id="container">
+      <header>
+        <h1 class="headcolor">Assignment 1</h1>
+      </header>
+
+      <main>
+        <form id="myform">
+          <p>
+            First Name: <br /><input type="text" id="firstname" size="30" />
+          </p>
+
+          <p>Enter Your Age: <br /><input type="text" id="age" size="3" /></p>
+
+          <p>
+            Hours Slept each Night: <br /><input
+              type="text"
+              id="sleep"
+              size="3"
+            />
+          </p>
+
+          <p>
+            <input
+              type="button"
+              id="mybutton"
+              value="Calculate Unconsciousness"
+            />
+          </p>
+        </form>
+
+        <p id="mymsg"></p>
+      </main>
+    </div>
+  </body>
+</html>
