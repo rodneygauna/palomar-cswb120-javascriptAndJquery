@@ -1,0 +1,56 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discussion 2</title>
+  </head>
+  <body>
+    <h1>Discussion 2</h1>
+    <h2>Use an AI Chatbot to create a JavaScript program</h2>
+    <label for="password">Enter your password:</label>
+    <input type="text" id="password" name="password" />
+    <button onclick="checkPassword()">Check Password</button>
+    <p id="message"></p>
+    <script>
+      /*
+        This function checks the password entered by the user
+        and displays a message based on the password entered.
+        The password must have the following criteria:
+            - Password should contain at least one capital letter
+            - Password should contain at least one numeric digit
+            - Password should contain at least one special character from !, @, #, $, &
+        If the input password meets the above criteria, then display a message "Your password is valid."
+        If the input password does not meet the above criteria, then display a message "Your password is invalid. The following criteria failed:",
+        along with the criteria that failed (from the above list), and finally ending with "Please try again."
+    */
+      function checkPassword() {
+        let password = document.getElementById("password").value;
+        let message = document.getElementById("message");
+        let criteria = [];
+        let isValid = true;
+        if (!/[A-Z]/.test(password)) {
+          criteria.push("Password should contain at least one capital letter");
+          isValid = false;
+        }
+        if (!/[0-9]/.test(password)) {
+          criteria.push("Password should contain at least one numeric digit");
+          isValid = false;
+        }
+        if (!/[!@#$&]/.test(password)) {
+          criteria.push(
+            "Password should contain at least one special character from !, @, #, $, &"
+          );
+          isValid = false;
+        }
+        if (isValid) {
+          message.innerHTML = "Your password is valid.";
+        } else {
+          message.innerHTML =
+            "Your password is invalid. The following criteria failed: <br/>" +
+            criteria.join("<br/>") +
+            "<br/>Please try again.";
+        }
+      }
+    </script>
+  </body>
+</html>
