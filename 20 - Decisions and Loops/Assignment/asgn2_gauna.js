@@ -9,9 +9,7 @@ function processInfo() {
     var firstName = "";
     var lastName = "";
     var petCount = 0;
-    var petName1 = "";
-    var petName2 = "";
-    var petName3 = "";
+    var petNames = "";
 
     // Input variables
     var firstNameInput = $("firstname").value;
@@ -49,7 +47,7 @@ function processInfo() {
     if (petCountInput == "") {
         petCountError.innerHTML = "Please enter the number of pets you have";
         errorFoundFlag = true;
-    } else if (petCountInput < 0 || petCountInput > 3) {
+    } else if (petCountInput < 0 || petCountInput > 3 || isNaN(petCountInput)) { // NaN stands for "not a number"
         petCountError.innerHTML = "Please enter a valid number between 0 and 3";
         errorFoundFlag = true;
     } else {
@@ -57,20 +55,21 @@ function processInfo() {
     }
 
     // Loop through pet names and store the total number of pets to petCount
-    // Store the pet names in petName1, petName2, and petName3 (if applicable)
+    // Store the pet names in petNamei, where i is the number of the pet
     for (var i = 1; i <= petCount; i++) {
-        var petNameInput = $("pet" + i).value;
-        if (petNameInput == "") {
-            $("pet" + i + "_error").innerHTML = "Please enter the name of pet #" + i;
+        var petNameInput = $("pet" + i)
+        if (petNameInput.value == "") {
+            var errorSpan = document.createElement("span");
+            // add an id to the span element
+            errorSpan.id = "pet" + i + "_error";
+            errorSpan.textContent = "Please enter the name of pet #" + i + ". ";
+
+            // Append the <span> element next to the pet name input field
+            petNameInput.parentNode.appendChild(errorSpan);
             errorFoundFlag = true;
         } else {
-            if (i == 1) {
-                petName1 = petNameInput;
-            } else if (i == 2) {
-                petName2 = petNameInput;
-            } else if (i == 3) {
-                petName3 = petNameInput;
-            }
+            // store pet name in petNamei where i is the number of the pet
+            petNames += " Your Pet #" + i + " is named " + petNameInput.value + ".";
         }
     }
 
@@ -81,33 +80,31 @@ function processInfo() {
         var mm = today.getMonth() + 1; //January is 0!
         var yyyy = today.getFullYear();
 
-        // Put the first and last names in the following format:  "Last, First"
-        // Date is in the following format:  "MM-DD-YYYY"
-        // For the count of pets, use the following format:  "Your Pet #i is named: petNamei." (where i is the number of the pet)
-        // For example, if I had 2 pets named "Fluffy" and "Spot", the output would be:
-        // "Your Name is listed as Gauna, Rodney and today's date is 9-4-2023. Your Pet #1 is named: Fluffy." "Your Pet #2 is named: Spot."
-
-        if (petCount == 1) {
-            outputMessage.innerHTML = "Your Name is listed as " + lastName + ", " + firstName + " and today's date is " + mm + "-" + dd + "-" + yyyy + ". Your Pet #1 is named " + petName1 + ".";
-        } else if (petCount == 2) {
-            outputMessage.innerHTML = "Your Name is listed as " + lastName + ", " + firstName + " and today's date is " + mm + "-" + dd + "-" + yyyy + ". Your Pet #1 is named " + petName1 + ". Your Pet #2 is named " + petName2 + ".";
-        } else if (petCount == 3) {
-            outputMessage.innerHTML = "Your Name is listed as " + lastName + ", " + firstName + " and today's date is " + mm + "-" + dd + "-" + yyyy + ". Your Pet #1 is named " + petName1 + ". Your Pet #2 is named " + petName2 + ". Your Pet #3 is named " + petName3 + ".";
-        } else {
-            outputMessage.innerHTML = "Your Name is listed as " + lastName + ", " + firstName + " and today's date is " + mm + "-" + dd + "-" + yyyy + ". You have no pets.";
-        }
+        // Output message
+        msgText = "Your Name is listed as " + lastName + ", " + firstName + " and today's date is " + mm + "-" + dd + "-" + yyyy + "." + petNames;
+        outputMessage.innerHTML = msgText;
     }
 }
 
 // Clear error messages
 function clearMessages() {
-    $("firstname_error").innerHTML = "";
-    $("lastname_error").innerHTML = "";
-    $("numpets_error").innerHTML = "";
-    $("pet1_error").innerHTML = "";
-    $("pet2_error").innerHTML = "";
-    $("pet3_error").innerHTML = "";
-    $("message").innerHTML = "";
+    /*
+    I'm pretty sure I'm going too far down the rabbit hole with this one
+    and beyond where we are in the course
+    because we haven't been introduced to arrays and regular expressions yet.
+    */
+
+    // Remove the pet error spans so that they don't keep adding up
+    var petErrorSpans = document.querySelectorAll("span[id^='pet']"); // Select all span tags that start with "pet"
+    for (var i = 0; i < petErrorSpans.length; i++) {
+        petErrorSpans[i].remove();
+    }
+    // Clear the error messages are in remain span tags
+    var errorSpans = document.getElementsByTagName("span");
+    console.log(typeof errorSpans);
+    for (var i = 0; i < errorSpans.length; i++) {
+        errorSpans[i].innerHTML = "";
+    }
 }
 
 window.onload = function () {
