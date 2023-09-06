@@ -101,7 +101,6 @@ function clearMessages() {
     }
     // Clear the error messages are in remain span tags
     var errorSpans = document.getElementsByTagName("span");
-    console.log(typeof errorSpans);
     for (var i = 0; i < errorSpans.length; i++) {
         errorSpans[i].innerHTML = "";
     }
