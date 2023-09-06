@@ -59,13 +59,11 @@ function processInfo() {
     for (var i = 1; i <= petCount; i++) {
         var petNameInput = $("pet" + i)
         if (petNameInput.value == "") {
-            var errorSpan = document.createElement("span");
-            // add an id to the span element
-            errorSpan.id = "pet" + i + "_error";
-            errorSpan.textContent = "Please enter the name of pet #" + i + ". ";
+            // I'm not sure if placing the error message in the output message
+            // is okay, but I'm not sure how else to add it after the input element.
+            petErrorMsg = '<span id="pet' + i + '_error">Please enter the name of pet #' + i + '. </span>';
+            outputMessage.innerHTML += petErrorMsg;
 
-            // Append the <span> element next to the pet name input field
-            petNameInput.parentNode.appendChild(errorSpan);
             errorFoundFlag = true;
         } else {
             // store pet name in petNamei where i is the number of the pet
@@ -88,22 +86,10 @@ function processInfo() {
 
 // Clear error messages
 function clearMessages() {
-    /*
-    I'm pretty sure I'm going too far down the rabbit hole with this one
-    and beyond where we are in the course
-    because we haven't been introduced to arrays and regular expressions yet.
-    */
-
-    // Remove the pet error spans so that they don't keep adding up
-    var petErrorSpans = document.querySelectorAll("span[id^='pet']"); // Select all span tags that start with "pet"
-    for (var i = 0; i < petErrorSpans.length; i++) {
-        petErrorSpans[i].remove();
-    }
-    // Clear the error messages are in remain span tags
-    var errorSpans = document.getElementsByTagName("span");
-    for (var i = 0; i < errorSpans.length; i++) {
-        errorSpans[i].innerHTML = "";
-    }
+    $("firstname_error").innerHTML = "";
+    $("lastname_error").innerHTML = "";
+    $("numpets_error").innerHTML = "";
+    $("message").innerHTML = "";
 }
 
 window.onload = function () {
