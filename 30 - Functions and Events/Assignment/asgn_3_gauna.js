@@ -45,6 +45,9 @@ var addPatrons = function () {
     // Call clearErrors() function
     clearErrors();
 
+    // Focus on first input
+    $("firstname").focus();
+
     // Call validateItems() function
     validateItems(firstNameValue, lastNameValue, emailValue, cityValue, donationValue);
 
@@ -177,6 +180,9 @@ var clearFields = function () {
     cityError.innerHTML = "";
     donationError.innerHTML = "";
     endError.innerHTML = "";
+
+    // Focus on first input
+    $("firstname").focus();
 }
 
 /* On load of window, initiate call functions
@@ -184,4 +190,5 @@ var clearFields = function () {
 window.onload = function () {
     $("addpatron").onclick = addPatrons;
     $("clearfields").onclick = clearFields;
+    $("firstname").focus();
 }
