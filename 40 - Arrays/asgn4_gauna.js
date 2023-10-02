@@ -30,7 +30,7 @@ function imageClick() {
     this.border = '4px';
     this.style.color = 'yellow';
 
-    // Add the name of the clicked image to the array
+    // Add the id of the clicked image to the array
     BeatlesArray.push(this.id);
 }
 
