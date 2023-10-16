@@ -15,14 +15,6 @@ $(document).ready(function () {
         $("#bigimage").css("display", "block");
     });
 
-    // Task 3
-    $("#submitme").click(function () {
-        var firstname = $("#firstname").val();
-        if (firstname == "") {
-            $("#firstname").next().text("Must enter first name");
-        }
-    });
-
     // Task 4
     $("#submitme").click(function () {
         var firstname = $("#firstname").val();
@@ -32,6 +24,10 @@ $(document).ready(function () {
         $("#firstname").next().text("");
         $("#mymessage").text("");
 
+        // Task 3
+        if (firstname == "") {
+            $("#firstname").next().text("Must enter first name");
+        }
         // if the user has entered a first name and selected a vacation image, display the message
         if (firstname != "" && vacation_destination != "") {
             $("#mymessage").text(firstname + " you want a " + vacation_destination);
