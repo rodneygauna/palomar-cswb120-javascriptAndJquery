@@ -13,6 +13,7 @@ $(document).ready(function () {
         $("#currentimage").attr("src", src);
         $("#imagedesc").text(alt);
         $("#bigimage").css("display", "block");
+        $("#showhidebutton").val("Hide Image");
     });
 
     // Task 4
@@ -38,10 +39,10 @@ $(document).ready(function () {
     $("#showhidebutton").click(function () {
         if ($("#showhidebutton").val() == "Hide Image") {
             $("#bigimage").css("display", "none");
-            $("#showhidebutton").val("Show Image");
+            $(this).val("Show Image");
         } else {
             $("#bigimage").css("display", "block");
-            $("#showhidebutton").val("Hide Image");
+            $(this).val("Hide Image");
         }
     });
 });
