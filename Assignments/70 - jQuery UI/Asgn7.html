@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery UI - Assigment 7</title>
+    <!-- jQuery UI CSS -->
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Asgn7.css" />
+  </head>
+  <body>
+    <h1>Health Care Exchange - First Draft</h1>
+    <div id="tabs">
+      <ul>
+        <li><a href="#tabs-1">Sign Up</a></li>
+        <li><a href="#tabs-2">Pick a Plan</a></li>
+        <li><a href="#tabs-3">How do you Feel?</a></li>
+      </ul>
+      <div id="tabs-1">
+        <h2>Sign Up</h2>
+        <form>
+          <label for="firstname">First Name:</label>
+          <input type="text" id="firstname" name="firstname" required />
+          <span class="error" id="firstname_error"></span>
+          <br />
+          <label for="lastname">Last Name:</label>
+          <input type="text" id="lastname" name="lastname" required />
+          <span class="error" id="lastname_error"></span>
+          <br />
+          <label for="startdate">Start Date:</label>
+          <input type="text" name="startdate" id="startdate" required />
+          <span class="error" id="startdate_error"></span>
+          <br />
+          <br />
+          <input type="button" id="mysubmit" value="Create an Account" />
+        </form>
+        <div id="validation_output"></div>
+      </div>
+      <div id="tabs-2">
+        <h2>Pick a Plan</h2>
+        <div id="greatplan" class="ui-widget-content">
+          <p>Great Plan!</p>
+        </div>
+        <div id="poorplan" class="ui-widget-content">
+          <p>Poor Plan!</p>
+        </div>
+        <div id="droparea" class="ui-widget-header">
+          <p>Drop your plan here</p>
+        </div>
+      </div>
+      <div id="tabs-3">
+        <form>
+          <input type="button" id="showmyfeelings" value="Show My Feelings" />
+        </form>
+        <div id="feelings_output">
+          <p id="feelings_text">How do you feel now?</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="Asgn7.js"></script>
+  </body>
+</html>

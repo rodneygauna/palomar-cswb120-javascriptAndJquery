@@ -1,0 +1,103 @@
+:root {
+    --background: #ffffcb;
+    --title: #0401ff;
+    --tabs_tab: #f0f0f0;
+    --tabs_body: #c0c0c0;
+    --tabs_border: #ffffff;
+    --tabs_accent: #e0e0e0;
+}
+
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    background-color: var(--background);
+}
+
+h1 {
+    color: var(--title);
+}
+
+.error {
+    color: red;
+}
+
+.validation_error {
+    color: red;
+    font-weight: bold;
+}
+
+.success {
+    color: green;
+    font-weight: bold;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+#tabs {
+    background-color: #ffffff;
+    border: 4px solid var(--tabs_border);
+    border-radius: 6px;
+}
+
+#tabs-1 {
+    background-color: var(--tabs_body);
+}
+
+#tabs ul {
+    background-color: var(--tabs_accent);
+}
+
+#tabs ul li {
+    background-color: #f1f1f1;
+    border: 1px solid #cccccc;
+}
+
+#tabs ul li a {
+    color: #000000;
+}
+
+#tabs ul li.ui-tabs-active {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+}
+
+#greatplan,
+#poorplan {
+    width: 100px;
+    height: 100px;
+    padding: 0.5em;
+    float: left;
+    margin: 10px 10px 10px 0;
+    z-index: 1;
+}
+
+#poorplan {
+    clear: left;
+}
+
+#droparea {
+    width: 180px;
+    height: 238px;
+    padding: 0.5em;
+    float: left;
+    margin: 10px 10px 10px 140px;
+    position: absolute;
+    background-color: #cccccc;
+}
+
+#feelings_output {
+    width: 50%;
+    height: 80px;
+    padding: 0.5em;
+    margin: 10px 0;
+    border: 1px solid #000000;
+}
+
+/* center the text vertically in the area */
+#feelings_output p {
+    margin-top: calc(60px - 1.5em);
+    font-size: 1.5em;
+}
